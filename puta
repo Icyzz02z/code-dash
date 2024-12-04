@@ -1,0 +1,54 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+    string name;
+    int age, choice;
+    int kid_3KP = 300, kid_5KP = 500, kid_10KP = 700;
+    int adult_3kp = 1000, adult_5kp = 1500, adult_10kp = 2000;
+    int senior_3kp = 400, senior_5kp = 600, senior_10kp = 800;
+    
+    
+    cout << "Welcome to the marathon's registration" << endl; 
+    cout << "please input your name\n";
+    cin >> name;
+    
+    system ("pause");
+    system ("cls");
+    
+    cout << "input your age\n";
+    cin >> age; 
+    
+    //kid
+    if (age >= 10 || age <= 17){
+    
+    cout << "[1] 3km for 300 [2] 5km for 500 [3] 10km for 700";
+    
+    cin >> choice;     }
+
+    //adult
+    else if (age >= 18 || age <= 59){
+        
+        cout << "[1] 3kp for 1000 [2] 5kp for 1500 [3] 10kp for 2000";
+        cin >> choice;
+    }
+        //senior
+        else if ( age >= 60) {
+            cout << "[1] 3kp for 400 [2] 5kp for 600 [3] 10kp for 800";
+            cin >> choice;
+        }
+        else 
+        {
+            cout << "invalid input";
+        }
+        
+
+    
+    
+    
+    
+    
+}
