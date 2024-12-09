@@ -1,0 +1,73 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string category, size;
+    double price = 0, payment = 0;
+    int choice;
+    bool hasProduct = false;
+
+    while (true) {
+        cout << "\n1. Add Product\n2. View Product\n3. Make Payment\n4. Exit\nEnter choice: ";
+        cin >> choice;
+
+        if (choice == 1) {
+            // Add product
+            cout << "Enter category (Perishable, Dry, Material): ";
+            cin >> category;
+            cout << "Enter size (Small, Medium, Large): ";
+            cin >> size;
+
+            // Calculate price
+            if (category == "Perishable") price = 10;
+            else if (category == "Dry") price = 5;
+            else if (category == "Material") price = 3;
+            else price = 0;
+
+            if (size == "Small") price *= 1.0;
+            else if (size == "Medium") price *= 1.5;
+            else if (size == "Large") price *= 2.0;
+
+            hasProduct = true;
+            cout << "Product added! Price: $" << price << "\n";
+        } 
+        else if (choice == 2) {
+            // View product
+            if (hasProduct) {
+                cout << "\nProduct Details:\n";
+                cout << "Category: " << category 
+                     << "\nSize: " << size 
+                     << "\nPrice: $" << price << endl;
+            } else {
+                cout << "No product available.\n";
+            }
+        } 
+        else if (choice == 3) {
+            // Payment
+            if (hasProduct) {
+                cout << "Enter payment amount: $";
+                cin >> payment;
+
+                if (payment >= price) {
+                    cout << "Payment successful! Change: $" << (payment - price) << "\n";
+                    hasProduct = false; // Product is "sold," reset the system
+                } else {
+                    cout << "Insufficient payment. You still owe: $" << (price - payment) << "\n";
+                }
+            } else {
+                cout << "No product available for payment.\n";
+            }
+        } 
+        else if (choice == 4) {
+            // Exit
+            break;
+        } 
+        else {
+            cout << "Invalid choice, try again.\n";
+        }
+    }
+
+    cout << "Exiting program.\n";
+    return 0;
+}
